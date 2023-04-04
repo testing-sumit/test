@@ -10,7 +10,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Add bot to repository
-        uses: peter-evans/repository-permissions-updater@v1.3.0
+        uses: sumits01/repository-permissions-updater@v1.3.0
         with:
           repositories: 'test4'
           teams: build
