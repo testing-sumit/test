@@ -1,0 +1,18 @@
+name: Add bot to repository
+on:
+  workflow_dispatch:
+jobs:
+  add-bot-access:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set repository name
+        run: echo "REPO_NAME=test4" >> $GITHUB_ENV
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Add bot to repository
+        uses: peter-evans/repository-permissions-updater@v1.3.0
+        with:
+          repositories: 'test4'
+          teams: build
+          permission: push
+          token: ${{ secrets.GITHUB_TOKEN }}
